@@ -32,7 +32,8 @@ airflow db init
 pip3 install 'apache-airflow[mysql]' 
 ```
 
-![error_1](.\image\error_1.PNG)
+![error_1](.\image\error_1.png)
+
 
 - 이런 에러 발생 시
 
