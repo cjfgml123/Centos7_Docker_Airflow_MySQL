@@ -22,7 +22,7 @@
 systemctl status docker
 ```
 
-![1_docker_status](.\image\1_docker_status.png)
+![1_docker_status](./image/1_docker_status.png)
 
 ```shell
 # docker 실행중인 container확인
