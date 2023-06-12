@@ -1,4 +1,4 @@
-# Apache Airflow 설치
+# Apache Airflow 설치 - 정리 보충 필요 
 
 - OS : Centos7
 
@@ -25,15 +25,14 @@ airflow db init
 
 ![error_0](./image/error_0.png)
 
-- splite3 버전 호환 문제나 "No module named '_sqlite3' " 발생 시 => 'sqlite3 를 설치하거나 버전을 올리는 방법'으로 해결 
-- 나는 MySQL 진행 예정이므로 
+- splite3 버전 호환 문제나 "No module named '_sqlite3' " 발생 시 => 'sqlite3 를 설치하거나 버전을 올리는 방법'으로 해결
+- 나는 MySQL 진행 예정이므로
 
 ```shell
 pip3 install 'apache-airflow[mysql]' 
 ```
 
 ![error_1](./image/error_1.png)
-
 
 - 이런 에러 발생 시
 
@@ -48,9 +47,8 @@ pip3 install 'apache-airflow[mysql]' #진행
 [root@leecheolhee ~]# airflow users list
 ```
 
-
-
 ### 1-3) Airflow 실행 프로세스 확인 명령어
 
 ```sh
 ps -ef | grep airflow
+```

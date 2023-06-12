@@ -15,7 +15,7 @@ with DAG(
     )
 ```
 
-
+- Airflow는 start_date를 기준으로 하루 이전부터 실행을 시작함.
 
 ### 1. Cron Expression Preset
 
