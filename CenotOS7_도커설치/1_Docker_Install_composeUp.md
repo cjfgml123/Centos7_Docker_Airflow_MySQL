@@ -43,6 +43,10 @@ docker-compose up airflow-init # 처음 한번 실행
 # 실행 중인 컨테이너들 한번에 종료
 docker stop $(docker ps -aq)
 
+# Dockerfile 수정 시 
+docker-compose build # 후에
+docker-compose up #실행
+
 # 다시 시작 및 매번 실행할 때(compose 파일 있는 곳에서)
 docker-compose up
 ```
