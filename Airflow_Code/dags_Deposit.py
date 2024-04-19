@@ -21,7 +21,7 @@ import asyncio
 - _s3_bucket_name : S3 버킷이름
 - _s3_root_folder : S3에 저장된 csv파일 Key값에 활용 ex) bank_folder/Deposit/2023/예금_2023_05_13.csv
 '''
-_endpoint = Variable.get('s3_endpoint')
+_endpoint = Variable.get('s3_endpoint_url')
 _access_key = Variable.get('s3_access_key')
 _secret_key = Variable.get('s3_secret_key')
 _s3_bucket_name = 'chlee-test'
@@ -30,11 +30,11 @@ _s3_root_folder = 'bank_folder/Deposit'
 '''
 - db 연결 변수
 '''
-_db_ip = Variable.get('db_host')
-_db_name = Variable.get('db_name')
-_db_port = Variable.get('db_port')
-_db_pw = Variable.get('db_pw')
-_db_user = Variable.get('db_user')
+_db_ip = Variable.get('ssidb_host')
+_db_name = Variable.get('ssidb_name')
+_db_port = Variable.get('ssidb_port')
+_db_pw = Variable.get('ssidb_password')
+_db_user = Variable.get('ssidb_user')
 _tableName = "DepositBankTable"
 
 '''
@@ -107,7 +107,7 @@ def DepositDataS3ToDB(**context):
     print(_df.head())
 
     _query = query(_db_ip,int(_db_port),_db_name,_db_user,_db_pw,_tableName)
-    #_query.CreateTable_DepositData()
+    _query.CreateTable_DepositData()
     _query.InsertDepositDFToTable(_df)
     _query.DisConnect()
     
@@ -120,7 +120,7 @@ default_args = {
 
 with DAG(
     dag_id = 'chlee_dag_deposit',
-    start_date=pendulum.datetime(2023, 6, 10, tz="Asia/Seoul"),
+    start_date=pendulum.datetime(2023, 1, 10, tz="Asia/Seoul"),
     default_args=default_args,
     schedule_interval='@daily',
     catchup=True
